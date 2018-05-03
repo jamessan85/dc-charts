@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content
+    h1 Shiny Form
+    p some Formssssssss
+    
+    form(action="/get_form_data" method="post")
+        label(for="name") Name
+        input(type="text" name="name") 
+        label(for="password") Password
+        input(type="password" name="password") 
+        button(type="submit") Submit    

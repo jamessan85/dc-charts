@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    p some charts
+    
+    div#test
+    div#rider-select
+        
+block additional_js
+    script(src='/javascripts/crossfilter.js')
+    script(src='/javascripts/d3.js')
+    script(src='/javascripts/dc.js')
+    script(src='/javascripts/graph.js')

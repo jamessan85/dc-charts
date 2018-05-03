@@ -1,0 +1,265 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p, h1, h2, h3, h4, li {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background: url("img/cyclebackgrey.jpg");
+    background-attachment: fixed;
+}
+
+/* add some margins to the spans to help space them */
+span {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* big button on hmome page */
+.btn-warning {
+    width: 300px;
+    height: 100px;
+    background-color: #f96f2a;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.btn-warning:hover {
+    background-color: #f96f2a;
+    opacity: 0.5;
+}
+
+
+.navbar {
+    background-color: #f96f2a;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: white;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.jumbotron {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.navbar-default {
+    border: none;
+}
+
+#totals {
+    font-size: 60px;
+    display: inline-block;
+}
+
+.navbar-default li{
+    color: white;
+}
+
+#likes{
+    font-size: 60px;
+    display: inline-block;
+}
+
+.glyphicon-thumbs-up {
+    font-size: 60px;
+}
+
+.dc-select-menu {
+   background: #f96f2a;
+   width: 100%;
+   border: none;
+   position: relative;
+   height: 31px;
+   font-size: 15px;
+   color: white;
+   vertical-align: middle;
+   text-align: center;
+   padding-top: 4px;
+   padding-bottom: 0px;
+   margin-top: 5px;
+}
+
+svg {
+    margin: 20px;
+}
+
+.extent {
+    opacity: 0.5;
+    background-color: #c0a16b;
+}
+
+.y-axis-label {
+    padding: 10px;
+}
+
+svg {
+   padding: -5px;
+}
+
+.bar{
+    fill: steelblue;
+}
+
+.line {
+    fill: steelblue;
+}
+
+rect .selected {
+    border:2px solid black;
+}
+
+.glyphicon-circle-arrow-down {
+    font-size: 20px;
+}
+
+.group-glyph-text {
+    display: inline-block;
+}
+
+.hider1 {
+    display: inline-block;
+}
+
+.hider2 {
+    display: inline-block;
+}
+
+.hider3 {
+    display: inline-block;
+}
+
+.dc-chart .pie-slice :hover {
+    fill-opacity: 0.5;
+}
+
+.dc-chart .selected path {
+    stroke-width: 3;
+    stroke: rgba(0, 0, 0, 0.96);
+    fill-opacity: 1;
+}
+
+.row {
+    background-color: white;
+    border: 1px solid black;
+    margin: 3px;
+    width: 100%
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.verticalAxis path {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+rect:hover {
+    fill-opacity: 0.5;
+    stroke-width: 3;
+}
+
+.dc-chart g rect .selected{
+    fill: red;
+}
+
+.chart-title {
+    padding-left: 5px;
+}
+
+.infobox {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.col-sm-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white ;
+    padding: 10px;
+}
+
+.col-sm-4 h4 {
+   text-align: center;
+    border-bottom: 1px solid #f96f2a ;
+}
+
+.col-sm-4 p::first-letter {
+    font-size: 20px;
+    color: #f96f2a;
+}
+
+g .axis .y {
+    margin: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.imgcircle {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button{
+    margin-top: 5px;
+    background-color: #f96f2a;
+}
+
+.btn .btn-success {
+    border: none;
+}
+
+.col-sm-12 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.makerow {
+    display: inline-block;
+}
+
+#chart-line-distance .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
+
+#elevation-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
+
+#elevation-chart.text.x-axis-label {
+    margin: 10px;
+}
