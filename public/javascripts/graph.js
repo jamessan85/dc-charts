@@ -1,6 +1,7 @@
 
 var chart = dc.pieChart("#test");
 var selectrider = dc.selectMenu("#rider-select");
+var barChart = dc.barChart("#bar-chart");
 
 d3.json("/data").then(function(experiments) {
 
@@ -12,11 +13,16 @@ d3.json("/data").then(function(experiments) {
         d.date = parseDate(d["Date"]);
         d.year = d.date.getFullYear();
         d.Name = d["Name"];
+        d.age = d["Age"];
     })
 
     // dimensions
-    runDimension = ndx.dimension(function(d) {
+    dateYear = ndx.dimension(function(d) {
         return d.year
+    })
+
+    dateDimension = ndx.dimension(function(d) {
+        return d.date
     })
 
     riderDim = ndx.dimension(function(d) {
@@ -24,25 +30,47 @@ d3.json("/data").then(function(experiments) {
     })
 
     // groups
-    speedSumGroup = runDimension.group().reduceSum(function(d) {
+    distanceGroup = dateDimension.group().reduceSum(function(d) {
             return d["Distance"];
     });
 
-    var riderGroup = riderDim.group();
+    ageGroup = dateYear.group().reduceSum(function(d) {
+        return d.age
+    })
 
-  chart
+    riderGroup = riderDim.group();
+
+    var minDate = dateDimension.bottom(1)[0].date;
+
+    var maxDate = dateDimension.top(1)[0].date;
+
+chart
     .width(768)
     .height(480)
     .innerRadius(100)
-    .dimension(runDimension)
-    .group(speedSumGroup)
-    // workaround for #703: not enough data is accessible through .label() to display percentages
+    .dimension(dateDimension)
+    .group(ageGroup)
 
-  selectrider
-      .dimension(riderDim)
-      .group(riderGroup);
+barChart
+ .width(768)
+ .height(380)
+ .x(d3.scaleTime().domain([minDate, maxDate]))
+ .xUnits(d3.timeFormat("%b"))
 
-    dc.renderAll();
+ .elasticY(true)
+ .xAxisLabel('Month')
+ .yAxisLabel('Distance Ridden')
+ .dimension(dateDimension)
+ .barPadding(0.5)
+ .outerPadding(0.10)
+ .group(distanceGroup)
+ .brushOn(false);
+
+selectrider
+  .dimension(riderDim)
+  .group(riderGroup);
+
+dc.renderAll();
 });
 
 
