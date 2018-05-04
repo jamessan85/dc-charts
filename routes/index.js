@@ -57,13 +57,14 @@ router.get('/data', function(req, res, next) {
 })
 
 router.get('/form', function(req, res, next) {
-    res.render('form', data );
+    res.render('form' );
 })
 
 router.post('/form', function(req, res, next) {
     data = req.body;
     main.James(data);
-    res.render('form', { data });
+    res.redirect('/form');
+    // res.send( data );
 })
 
 module.exports = router;
