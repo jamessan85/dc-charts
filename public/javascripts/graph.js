@@ -34,6 +34,10 @@ d3.json("/data").then(function(experiments) {
             return d["Distance"];
     });
 
+    distanceYearGroup = dateYear.group().reduceSum(function(d) {
+            return d["Distance"];
+    });
+
     ageGroup = dateYear.group().reduceSum(function(d) {
         return d.age
     })
@@ -48,15 +52,14 @@ chart
     .width(768)
     .height(480)
     .innerRadius(100)
-    .dimension(dateDimension)
-    .group(ageGroup)
+    .dimension(dateYear)
+    .group(distanceYearGroup)
 
 barChart
  .width(768)
  .height(380)
  .x(d3.scaleTime().domain([minDate, maxDate]))
  .xUnits(d3.timeFormat("%b"))
-
  .elasticY(true)
  .xAxisLabel('Month')
  .yAxisLabel('Distance Ridden')

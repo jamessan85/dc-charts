@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var main = require('../public/javascripts/main')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -45,26 +46,24 @@ router.get('/data', function(req, res, next) {
           "Age": 9,
           "Date": "2013-11-04",
           "Distance": 200
-      }, { "Name": "James Sanderson",
+    }, { "Name": "James Sanderson",
             "Age": 9,
             "Date": "2013-02-04",
             "Distance": 200
-          }
+        }
     ]
 
     res.send( JSON.stringify(graphData) )
 })
 
 router.get('/form', function(req, res, next) {
-    res.render('form')
+    res.render('form', data );
 })
 
-router.post('/get_form_data', function(req, res, next) {
+router.post('/form', function(req, res, next) {
     data = req.body;
-    console.log(data);
-    res.redirect('/');
+    main.James(data);
+    res.render('form', { data });
 })
-
-
 
 module.exports = router;
