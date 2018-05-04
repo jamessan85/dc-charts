@@ -1,9 +1,23 @@
 
 var chart = dc.pieChart("#test");
 var selectrider = dc.selectMenu("#rider-select");
-var barChart = dc.barChart("#bar-chart");
+var barChart = dc.lineChart("#bar-chart");
 
 d3.json("/data").then(function(experiments) {
+
+    ages = []
+    for (var i = 0; i <experiments.length; i++) {
+        ages.push(experiments[i].Age);
+    }
+
+    d3.select(".chart")
+      .selectAll("div")
+      .data(ages)
+        .enter()
+        .append("div")
+        .style("width", function(d) { return d + "px"; })
+        .text(function(d) { return d; });
+
 
   var ndx = crossfilter(experiments)
 
@@ -56,7 +70,7 @@ chart
     .group(distanceYearGroup)
 
 barChart
- .width(768)
+ .width(500)
  .height(380)
  .x(d3.scaleTime().domain([minDate, maxDate]))
  .xUnits(d3.timeFormat("%b"))
@@ -64,17 +78,24 @@ barChart
  .xAxisLabel('Month')
  .yAxisLabel('Distance Ridden')
  .dimension(dateDimension)
- .barPadding(0.5)
- .outerPadding(0.10)
  .group(distanceGroup)
- .brushOn(false);
+ .brushOn(true);
 
 selectrider
   .dimension(riderDim)
   .group(riderGroup);
 
+
+
 dc.renderAll();
+
+
 });
+
+
+
+
+
 
 
  // Create varibale and their id's to use in the html

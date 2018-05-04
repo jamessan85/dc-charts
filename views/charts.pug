@@ -3,9 +3,15 @@ extends layout.pug
 block content
     p some charts
     
-    div#rider-select
-    div#test
-    div#bar-chart
+    div.container
+        div.row    
+            div#rider-select.col-sm-4
+        div.row        
+            div#test.col-sm-4
+        div.row
+            div#bar-chart.col-sm-4
+        div.row
+            div.chart        
         
 block additional_js
     script(src='/javascripts/crossfilter.js')
